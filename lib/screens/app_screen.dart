@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_flutter/bloc/product_bloc.dart';
 import 'package:hello_flutter/data/model/product.dart';
@@ -23,7 +22,8 @@ class _AppScreenState extends State<AppScreen> {
           child: BlocConsumer<ProductBloc, ProductState>(
               listener: (context, state) {
         if (state is ProductAdded) {
-          const snackBar = SnackBar(content: Text("Product is added"));
+          const snackBar =
+              SnackBar(content: Text("Product is added Successfully!"));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           context.read<ProductBloc>().add(GetProduct());
         }
